@@ -2,6 +2,10 @@
 
 import uvicorn
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 from private_gpt.main import app
 from private_gpt.settings.settings import settings
 
